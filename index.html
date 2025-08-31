@@ -975,14 +975,16 @@ function onScanSuccess(decodedText){
     debounceSave();
     logScan('QR ajouté : '+nigend);
 	
-	// Stop le scanner puis ferme le modal
+	// --- STOP le scanner et FERME le modal sans rappeler stop() ---
     if(html5QrCode && isScanning){
       html5QrCode.stop().then(()=>{
         isScanning = false;
-        closeQrModal(); // <- ici on ferme le modal automatiquement
-      }).catch(()=>{});
+        document.getElementById('qrModal').style.display = 'none'; // ferme le modal directement
+        console.log('Scan arrêté et modal fermé automatiquement.');
+      }).catch(err => console.error(err));
     }
-  }catch(e){console.error(e);}
+
+  } catch(e) { console.error(e); }
 }
 
 function parseQrPayload(raw){
