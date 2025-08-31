@@ -804,7 +804,7 @@
 
       cr += `(${esrCount}) ESR\n`;
       state.esrList.forEach((esr,i) => {
-        cr += `${i+1} ${esr.grade}  ${esr.nom} - ${esr.nigend} - CRT ${esr.crt}\n`;
+        cr += `${i+1} ${esr.grade} ${esr.nom} - ${esr.nigend} - CRT ${esr.crt}\n`;
       });
 
       cr += `\nPorteur caméra nº ${state.cameraNum} : ${state.cameraESR || ''}\n`;
